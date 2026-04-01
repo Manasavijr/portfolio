@@ -36,7 +36,7 @@ const data = {
     "Optimizing ML inference latency on GCP",
     "Researching agentic AI workflows with LangChain",
   ],
-  about: `I'm a Data Scientist and ML Engineer pursuing my M.S. in Applied Data Science at USC (GPA: 4.0), with hands-on experience building end-to-end ML pipelines, GenAI workflows, and production-grade analytics systems. I have filed a patent for real-time sign language translation AI and have delivered measurable impact at Ford Motor Company and iNextLabs. Open to Data Science, Data Analytics, AI Engineering, ML Engineering, and Data Engineering roles.`,
+  about: `I'm a Data Scientist and ML Engineer pursuing my M.S. in Applied Data Science at University of Southern California, with hands-on experience building end-to-end ML pipelines, GenAI workflows, and production-grade analytics systems. I have filed a patent for real-time sign language translation AI and have delivered measurable impact at Ford Motor Company and iNextLabs. Open to Data Science, Data Analytics, AI Engineering, ML Engineering, and Data Engineering roles.`,
   metrics: [
     { value:75,  suffix:"%", label:"Pipeline Efficiency — Ford" },
     { value:40,  suffix:"%", label:"Faster Resolution — iNextLabs" },
