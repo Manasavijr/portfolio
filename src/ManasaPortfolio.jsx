@@ -71,9 +71,9 @@ const data = {
     {
       title:"SignMate AI",
       badge:"Patent Filed + Publication",
-      summary:"Patented real-time CNN system translating Indian Sign Language to text using PyTorch + OpenCV. Co-authored peer-reviewed publication on TechRxiv.",
+      summary:"Patented real-time CNN system translating Indian Sign Language to text using PyTorch + OpenCV, publication on IP India.",
       stack:["Python","PyTorch","TensorFlow","OpenCV","CNNs"],
-      impact:"Patent filed with IP India · Published on TechRxiv (Project Eye) · Real-time inference on custom-labeled dataset.",
+      impact:"Patent filed with IP India · Published on IP INDIA · Real-time inference on custom-labeled dataset.",
 
     },
     {
