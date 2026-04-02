@@ -73,7 +73,7 @@ const data = {
       badge:"Patent Filed + Publication",
       summary:"Patented real-time CNN system translating Indian Sign Language to text using PyTorch + OpenCV.",
       stack:["Python","PyTorch","TensorFlow","OpenCV","CNNs"],
-      impact:"Patent filed with IP India · Published under IP India Website· Real-time inference on custom-labeled dataset.",
+      impact:"Patent filed with IP India · Published under IP India· Real-time inference on custom-labeled dataset.",
     },
     {
       title:"Finance Analytics & NL→SQL Intelligence",
@@ -124,6 +124,7 @@ const data = {
       impact:"10M+ events in ~40s · Granger causality detects error_rate → revenue lag · $54M revenue tracked live.",
       github:"https://github.com/Manasavijr/behavioral-analytics",
     },
+
     {
       title:"Fraud Detection & Churn Prediction — ML Research",
       summary:"End-to-end ML research platform on 1M+ row datasets — automotive ECU fraud detection at 98.7% AUC, PyTorch autoencoder embeddings for churn, 50 engineered features.",
@@ -1049,6 +1050,12 @@ const css = `
   @media(max-width:768px){
     .nav-links{display:none!important}
     nav button[aria-label="Menu"]{display:flex!important}
+    body{text-align:center}
+    .skill-group,.exp-timeline-left,.exp-timeline-right,.edu-right,.edu-card{text-align:left!important}
+    .hero-btns,.hero-statrow,.hero-chips,.hero-tagline,.hero-loc,.hero-name{text-align:center!important}
+    section{text-align:center!important}
+    p,h1,h2,h3,h4{text-align:center!important}
+    .skill-group p,.exp-card p,.exp-card li,.edu-card p{text-align:left!important}
     section{padding:2rem 1rem!important;max-width:100%!important}
     .hero-content{padding:0 1rem 2rem!important;margin-top:-1.5rem!important}
     .hero-btns{flex-direction:column!important;align-items:center!important;gap:0.65rem!important}
