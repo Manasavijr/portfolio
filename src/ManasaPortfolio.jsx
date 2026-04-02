@@ -73,7 +73,7 @@ const data = {
       badge:"Patent Filed + Publication",
       summary:"Patented real-time CNN system translating Indian Sign Language to text using PyTorch + OpenCV.",
       stack:["Python","PyTorch","TensorFlow","OpenCV","CNNs"],
-      impact:"Patent filed with IP India · Published under IP India Website · Real-time inference on custom-labeled dataset.",
+      impact:"Patent filed with IP India · Published under IP India Website· Real-time inference on custom-labeled dataset.",
     },
     {
       title:"Finance Analytics & NL→SQL Intelligence",
@@ -753,7 +753,7 @@ export default function Portfolio() {
                     <span style={st.certIcon}>{c.icon}</span>
                     <div style={st.certContent}>
                       <span style={{ ...st.certTitle, color:(c.link||c.image)?C.teal:C.charcoal }}>
-                        {c.title}{(c.link||c.image) ? <span style={{fontSize:"0.7em", verticalAlign:"super", fontStyle:"normal"}}> ↑</span> : ""}
+                        {c.title}{(c.link||c.image) ? " ↗" : ""}
                       </span>
                       <span style={st.certDesc}>{c.desc}</span>
                     </div>
@@ -1063,9 +1063,6 @@ const css = `
     .exp-timeline-left,.exp-timeline-right{padding:0!important;align-items:flex-start!important}
   }
   @media(min-width:769px) and (max-width:1024px){
-    .project-card-grid{grid-template-columns:repeat(2,1fr)!important}
-    .strengths-grid{grid-template-columns:repeat(2,1fr)!important}
-  }
     .project-card-grid{grid-template-columns:repeat(2,1fr)!important}
     .strengths-grid{grid-template-columns:repeat(2,1fr)!important}
   }
