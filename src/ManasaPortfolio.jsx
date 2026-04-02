@@ -36,7 +36,7 @@ const data = {
     "Optimizing ML inference latency on GCP",
     "Researching agentic AI workflows with LangChain",
   ],
-  about: `I'm a Data Scientist and ML Engineer pursuing my M.S. in Applied Data Science at USC (GPA: 4.0), with hands-on experience building end-to-end ML pipelines, GenAI workflows, and production-grade analytics systems. I have filed a patent for real-time sign language translation AI and have delivered measurable impact at Ford Motor Company and iNextLabs. Open to Data Science, Data Analytics, AI Engineering, ML Engineering, and Data Engineering roles.`,
+  about: `I'm a Data Scientist and ML Engineer pursuing my M.S. in Applied Data Science at University of Southern California, with hands-on experience building end-to-end ML pipelines, GenAI workflows, and production-grade analytics systems. I have filed a patent for real-time sign language translation AI and have delivered measurable impact at Ford Motor Company and iNextLabs. Open to Data Science, Data Analytics, AI Engineering, ML Engineering, and Data Engineering roles.`,
   metrics: [
     { value:75,  suffix:"%", label:"Pipeline Efficiency — Ford" },
     { value:40,  suffix:"%", label:"Faster Resolution — iNextLabs" },
@@ -71,10 +71,9 @@ const data = {
     {
       title:"SignMate AI",
       badge:"Patent Filed + Publication",
-      summary:"Patented real-time CNN system translating Indian Sign Language to text using PyTorch + OpenCV. Co-authored peer-reviewed publication on TechRxiv.",
+      summary:"Patented real-time CNN system translating Indian Sign Language to text using PyTorch + OpenCV.",
       stack:["Python","PyTorch","TensorFlow","OpenCV","CNNs"],
-      impact:"Patent filed with IP India · Published on TechRxiv (Project Eye) · Real-time inference on custom-labeled dataset.",
-      github:"https://github.com/Manasavijr",
+      impact:"Patent filed with IP India · Published under IP India Website · Real-time inference on custom-labeled dataset.",
     },
     {
       title:"Finance Analytics & NL→SQL Intelligence",
@@ -82,7 +81,6 @@ const data = {
       summary:"ETL pipelines for financial data, forecasting models, PostgreSQL + pgvector backend, and LangChain-powered plain-English SQL queries.",
       stack:["Python","PostgreSQL","pgvector","LangChain","SQL","Pandas","FastAPI"],
       impact:"Non-technical users query financial data in plain English · variance and forecasting models surface actionable insights.",
-    
     },
     {
       title:"Production MLOps Platform & LLM Inference",
@@ -827,7 +825,7 @@ const st = {
   navLinkActive:{ color:C.white, fontWeight:700 },
   navGithub:{ color:C.white, transition:"color 0.2s, opacity 0.2s", opacity:0.8, display:"flex", alignItems:"center" },
   navResume:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.76rem", letterSpacing:"0.14em", textTransform:"uppercase", color:C.white, border:"1.5px solid rgba(255,255,255,0.6)", padding:"0.38rem 0.95rem", borderRadius:"2px", textDecoration:"none", fontWeight:600, transition:"background 0.2s" },
-  hamburger:{ display:"none", flexDirection:"column", gap:"5px", background:"none", border:"none", cursor:"pointer", padding:"4px" },
+  hamburger:{ display:"none", flexDirection:"column", gap:"5px", background:"none", border:"none", cursor:"pointer", padding:"4px", flexShrink:0 },
   bar:{ display:"block", width:"22px", height:"2px", background:C.white, transition:"all 0.3s" },
   barOpen1:{ transform:"translateY(7px) rotate(45deg)" },
   barOpen2:{ opacity:0 },
@@ -1049,6 +1047,8 @@ const css = `
   nav button::after{content:"";position:absolute;bottom:-2px;left:0;width:0;height:1px;background:currentColor;transition:width 0.25s ease}
   nav button:hover::after{width:100%}
   @media(max-width:768px){
+    .nav-links{display:none!important}
+    nav button[aria-label="Menu"]{display:flex!important}
     section{padding:2rem 1rem!important;max-width:100%!important}
     .hero-content{padding:0 1rem 2rem!important;margin-top:-1.5rem!important}
     .hero-btns{flex-direction:column!important;align-items:center!important;gap:0.65rem!important}
