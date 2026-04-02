@@ -112,7 +112,6 @@ const data = {
     },
     {
       title:"Privacy-Preserving Federated Learning",
-      badge:"Apple AIML Fit",
       summary:"FedAvg across 10 distributed clients — 99.2% MNIST accuracy with Gaussian differential privacy & non-IID simulation.",
       stack:["Python","PyTorch","Flower","Differential Privacy","FastAPI","Chart.js"],
       impact:"99.2% accuracy · within 0.4% of centralized · RDP moments accountant tracks (epsilon, delta) privacy budget per round.",
@@ -120,7 +119,6 @@ const data = {
     },
     {
       title:"Large-Scale Behavioral Analytics Pipeline",
-      badge:"Amazon Fit",
       summary:"PySpark ETL on 10M+ e-commerce events — 3-method anomaly detection, Granger causality RCA, Athena SQL layer, FastAPI dashboard.",
       stack:["PySpark","AWS S3","Athena","SciPy","Isolation Forest","FastAPI","Chart.js"],
       impact:"10M+ events in ~40s · Granger causality detects error_rate → revenue lag · $54M revenue tracked live.",
@@ -171,6 +169,8 @@ function useScrollSpy() {
   const [active, setActive] = useState("");
   useEffect(() => {
     const h = () => {
+      const bottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 50;
+      if (bottom) { setActive("Contact"); return; }
       for (const id of [...NAV_LINKS].reverse()) {
         const el = document.getElementById(id.toLowerCase());
         if (el && window.scrollY >= el.offsetTop - 200) { setActive(id); break; }
