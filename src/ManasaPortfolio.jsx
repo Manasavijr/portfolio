@@ -74,6 +74,7 @@ const data = {
       summary:"Patented real-time CNN system translating Indian Sign Language to text using PyTorch + OpenCV. Co-authored peer-reviewed publication on TechRxiv.",
       stack:["Python","PyTorch","TensorFlow","OpenCV","CNNs"],
       impact:"Patent filed with IP India · Published on TechRxiv (Project Eye) · Real-time inference on custom-labeled dataset.",
+      github:"https://github.com/Manasavijr",
     },
     {
       title:"Finance Analytics & NL→SQL Intelligence",
@@ -81,6 +82,7 @@ const data = {
       summary:"ETL pipelines for financial data, forecasting models, PostgreSQL + pgvector backend, and LangChain-powered plain-English SQL queries.",
       stack:["Python","PostgreSQL","pgvector","LangChain","SQL","Pandas","FastAPI"],
       impact:"Non-technical users query financial data in plain English · variance and forecasting models surface actionable insights.",
+    
     },
     {
       title:"Production MLOps Platform & LLM Inference",
@@ -564,7 +566,7 @@ export default function Portfolio() {
       {/* NAV — transparent over image, frosted when scrolled */}
       <nav style={{ ...st.nav, ...(scrolled?st.navScrolled:{}) }}>
         <span style={{...st.navLogo, color:C.teal}} onClick={()=>window.scrollTo({top:0,behavior:"smooth"})}>MV</span>
-        <div style={st.navLinks}>
+        <div className="nav-links" style={st.navLinks}>
           {NAV_LINKS.map(l=>(
             <button key={l} onClick={()=>scrollTo(l)}
               style={{ ...st.navLink, color:active===l?C.teal:"#FFFFFF", fontWeight:active===l?700:500 }}>{l}</button>
@@ -727,13 +729,13 @@ export default function Portfolio() {
           <SectionLabel>Education</SectionLabel>
           <div style={st.eduList}>
             {data.education.map((e,i)=>(
-              <div key={i} style={st.eduCard}>
+              <div key={i} className="edu-card" style={st.eduCard}>
                 <div style={st.eduLeft}>
                   <p style={st.eduSchool}>{e.school}</p>
                   <p style={st.eduDegree}>{e.degree}</p>
                   {e.detail&&<p style={st.eduDetail}>{e.detail}</p>}
                 </div>
-                <div style={st.eduRight}>
+                <div className="edu-right" style={st.eduRight}>
                   <p style={st.eduPeriod}>{e.period}</p>
                   <p style={st.eduLocation}>{e.location}</p>
                 </div>
@@ -753,7 +755,7 @@ export default function Portfolio() {
                     <span style={st.certIcon}>{c.icon}</span>
                     <div style={st.certContent}>
                       <span style={{ ...st.certTitle, color:(c.link||c.image)?C.teal:C.charcoal }}>
-                        {c.title}{(c.link||c.image) ? " ↗" : ""}
+                        {c.title}{(c.link||c.image) ? <span style={{fontSize:"0.7em", verticalAlign:"super", fontStyle:"normal"}}> ↑</span> : ""}
                       </span>
                       <span style={st.certDesc}>{c.desc}</span>
                     </div>
@@ -838,8 +840,8 @@ const st = {
   hero:{ position:"relative", background:C.bg },
 
   // Photo banner — upper portion, fixed height
-  heroBannerWrap:{ position:"relative", width:"100%", lineHeight:0, overflow:"hidden", aspectRatio:"16/7" },
-  heroBannerImg:{ width:"100%", height:"auto", display:"block" },
+  heroBannerWrap:{ position:"relative", width:"100vw", marginLeft:"calc(-50vw + 50%)", lineHeight:0, overflow:"hidden" },
+  heroBannerImg:{ width:"100%", height:"auto", display:"block", objectFit:"cover", objectPosition:"center top" },
   // Strong bottom fade: image → exact bg colour
   heroBannerFade:{ position:"absolute", bottom:0, left:0, right:0, height:"60%", background:"linear-gradient(to bottom, transparent 0%, rgba(10,12,15,0.5) 45%, #0A0C0F 85%, #0A0C0F 100%)" },
   // Subtle side + top darkening so nav text is readable
@@ -861,10 +863,10 @@ const st = {
   heroSubChipDot:{ margin:"0 0.6rem", color:C.sand, fontWeight:400, fontSize:"1rem" },
   heroTitle:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"1.05rem", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:C.teal, marginBottom:"1rem" },
   heroTagline:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"1.12rem", fontStyle:"italic", fontWeight:400, color:"rgba(255,255,255,0.6)", maxWidth:"540px", marginBottom:"1.2rem", lineHeight:1.7, textAlign:"center" },
-  currentlyWrap:{ display:"inline-flex", alignItems:"center", gap:"0.55rem", marginBottom:"1.1rem", background:"rgba(91,191,212,0.08)", border:"1px solid rgba(91,191,212,0.2)", borderRadius:"30px", padding:"0.5rem 1.2rem", maxWidth:"90%", flexWrap:"nowrap" },
+  currentlyWrap:{ display:"inline-flex", alignItems:"center", gap:"0.55rem", marginBottom:"1.1rem", background:"rgba(91,191,212,0.08)", border:"1px solid rgba(91,191,212,0.2)", borderRadius:"30px", padding:"0.5rem 1.2rem", maxWidth:"92%", flexWrap:"wrap" },
   currentlyDot:{ width:"6px", height:"6px", borderRadius:"50%", background:C.burgundy, flexShrink:0, animation:"pulse 2s infinite" },
   currentlyLabel:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.7rem", letterSpacing:"0.14em", textTransform:"uppercase", color:"#5BBFD4", fontWeight:700, whiteSpace:"nowrap" },
-  currentlyText:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.95rem", color:C.textMuted, fontStyle:"italic", whiteSpace:"nowrap" },
+  currentlyText:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.95rem", color:C.textMuted, fontStyle:"italic", whiteSpace:"normal" },
   buildingWrap:{ display:"inline-flex", alignItems:"center", gap:"0.5rem", background:"rgba(28,78,106,0.05)", border:`1px solid rgba(28,78,106,0.12)`, borderRadius:"4px", padding:"0.45rem 1rem", marginBottom:"0.25rem" },
   buildingDot:{ width:"6px", height:"6px", borderRadius:"50%", background:C.burgundy, flexShrink:0 },
   buildingLabel:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.72rem", letterSpacing:"0.14em", textTransform:"uppercase", color:C.teal, fontWeight:700, whiteSpace:"nowrap" },
@@ -960,9 +962,9 @@ const st = {
   skillFill:{ display:"none" },
 
   eduList:{ display:"flex", flexDirection:"column", gap:"1.25rem" },
-  eduCard:{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:"1rem", padding:"1.6rem 2.1rem", background:C.bgCard, border:"1px solid rgba(255,255,255,0.07)", borderTop:`2.5px solid ${C.teal}`, borderRadius:"8px", flexWrap:"wrap", boxShadow:"0 4px 20px rgba(0,0,0,0.3)" },
+  eduCard:{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:"1rem", padding:"1.6rem 2.1rem", background:C.bgCard, border:"1px solid rgba(255,255,255,0.07)", borderTop:`2.5px solid ${C.teal}`, borderRadius:"8px", boxShadow:"0 4px 20px rgba(0,0,0,0.3)", width:"100%" },
   eduLeft:{ display:"flex", flexDirection:"column", gap:"0.35rem" },
-  eduRight:{ display:"flex", flexDirection:"column", gap:"0.28rem", alignItems:"flex-end" },
+  eduRight:{ display:"flex", flexDirection:"column", gap:"0.28rem", alignItems:"flex-end", flexShrink:0 },
   eduSchool:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"1.3rem", fontWeight:700, color:"#F0ECE6" },
   eduDegree:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"1.1rem", color:C.taupe, fontStyle:"italic", fontWeight:500 },
   eduDetail:{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.95rem", color:C.teal, fontWeight:700 },
@@ -1047,33 +1049,23 @@ const css = `
   nav button::after{content:"";position:absolute;bottom:-2px;left:0;width:0;height:1px;background:currentColor;transition:width 0.25s ease}
   nav button:hover::after{width:100%}
   @media(max-width:768px){
-    nav>div{display:none!important}
-    nav{padding:0.65rem 1.25rem!important}
-    section{padding:2.5rem 1.25rem!important;max-width:100%!important}
-    footer{padding:1.5rem 1.25rem!important}
-    .hero-name{font-size:clamp(2rem,9vw,3rem)!important}
-    .hero-loc{font-size:0.72rem!important}
-    .hero-tagline{font-size:0.95rem!important;padding:0 0.5rem!important}
-    .hero-btns{flex-direction:column!important;align-items:center!important;gap:0.65rem!important;width:100%!important}
+    section{padding:2rem 1rem!important;max-width:100%!important}
+    .hero-content{padding:0 1rem 2rem!important;margin-top:-1.5rem!important}
+    .hero-btns{flex-direction:column!important;align-items:center!important;gap:0.65rem!important}
     .hero-btns button,.hero-btns a{width:85vw!important;max-width:320px!important;text-align:center!important}
-    .hero-statrow{grid-template-columns:repeat(2,1fr)!important;max-width:100%!important;gap:1rem 0!important}
-    .hero-content{padding:0 1.25rem 3rem!important;margin-top:-2rem!important}
+    .hero-statrow{grid-template-columns:repeat(2,1fr)!important;max-width:100%!important}
     .project-card-grid{grid-template-columns:1fr!important}
-    .strengths-grid{grid-template-columns:1fr!important;gap:1.5rem!important}
-    .skills-grid{flex-direction:column!important}
-    .skill-group{flex-direction:column!important;gap:0.5rem!important;align-items:flex-start!important}
+    .strengths-grid{grid-template-columns:1fr!important}
+    .edu-card{flex-direction:column!important}
+    .edu-right{align-items:flex-start!important}
     .exp-timeline-row{display:block!important;padding-left:1.5rem!important}
     .exp-timeline-center{display:none!important}
-    .exp-timeline-right,.exp-timeline-left{padding:0!important;align-items:flex-start!important}
-    .contact-inner{max-width:100%!important}
-  }
-  @media(max-width:480px){
-    .hero-name{font-size:clamp(1.7rem,8vw,2.5rem)!important}
-    .hero-btns button,.hero-btns a{width:90vw!important}
-    section{padding:2rem 1rem!important}
+    .exp-timeline-left,.exp-timeline-right{padding:0!important;align-items:flex-start!important}
   }
   @media(min-width:769px) and (max-width:1024px){
-    section{padding:3rem 2rem!important}
+    .project-card-grid{grid-template-columns:repeat(2,1fr)!important}
+    .strengths-grid{grid-template-columns:repeat(2,1fr)!important}
+  }
     .project-card-grid{grid-template-columns:repeat(2,1fr)!important}
     .strengths-grid{grid-template-columns:repeat(2,1fr)!important}
   }
