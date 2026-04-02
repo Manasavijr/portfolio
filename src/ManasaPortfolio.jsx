@@ -73,7 +73,7 @@ const data = {
       badge:"Patent Filed + Publication",
       summary:"Patented real-time CNN system translating Indian Sign Language to text using PyTorch + OpenCV.",
       stack:["Python","PyTorch","TensorFlow","OpenCV","CNNs"],
-      impact:"Patent filed with IP India · Published under IP India· Real-time inference on custom-labeled dataset.",
+      impact:"Patent filed with IP India · Published under IP India · Real-time inference on custom-labeled dataset.",
     },
     {
       title:"Finance Analytics & NL→SQL Intelligence",
@@ -112,6 +112,7 @@ const data = {
     },
     {
       title:"Privacy-Preserving Federated Learning",
+      badge:"Apple AIML Fit",
       summary:"FedAvg across 10 distributed clients — 99.2% MNIST accuracy with Gaussian differential privacy & non-IID simulation.",
       stack:["Python","PyTorch","Flower","Differential Privacy","FastAPI","Chart.js"],
       impact:"99.2% accuracy · within 0.4% of centralized · RDP moments accountant tracks (epsilon, delta) privacy budget per round.",
@@ -119,12 +120,12 @@ const data = {
     },
     {
       title:"Large-Scale Behavioral Analytics Pipeline",
+      badge:"Amazon Fit",
       summary:"PySpark ETL on 10M+ e-commerce events — 3-method anomaly detection, Granger causality RCA, Athena SQL layer, FastAPI dashboard.",
       stack:["PySpark","AWS S3","Athena","SciPy","Isolation Forest","FastAPI","Chart.js"],
       impact:"10M+ events in ~40s · Granger causality detects error_rate → revenue lag · $54M revenue tracked live.",
       github:"https://github.com/Manasavijr/behavioral-analytics",
     },
-
     {
       title:"Fraud Detection & Churn Prediction — ML Research",
       summary:"End-to-end ML research platform on 1M+ row datasets — automotive ECU fraud detection at 98.7% AUC, PyTorch autoencoder embeddings for churn, 50 engineered features.",
@@ -172,7 +173,7 @@ function useScrollSpy() {
     const h = () => {
       for (const id of [...NAV_LINKS].reverse()) {
         const el = document.getElementById(id.toLowerCase());
-        if (el && window.scrollY >= el.offsetTop - 130) { setActive(id); break; }
+        if (el && window.scrollY >= el.offsetTop - 200) { setActive(id); break; }
       }
     };
     window.addEventListener("scroll", h, { passive:true });
@@ -568,7 +569,7 @@ export default function Portfolio() {
         <div className="nav-links" style={st.navLinks}>
           {NAV_LINKS.map(l=>(
             <button key={l} onClick={()=>scrollTo(l)}
-              style={{ ...st.navLink, color:active===l?C.teal:"#FFFFFF", fontWeight:active===l?700:500 }}>{l}</button>
+              style={{ ...st.navLink, color:active===l?C.teal:"rgba(255,255,255,0.75)", fontWeight:active===l?700:400 }}>{l}</button>
           ))}
           <a href={data.resumeUrl} download="manasa_vijayaraghavan_resume.pdf" style={{...st.navResume, color:C.teal, borderColor:"rgba(74,155,184,0.5)"}}>Resume ↓</a>
           <a href={`https://${data.github}`} target="_blank" rel="noopener noreferrer"
