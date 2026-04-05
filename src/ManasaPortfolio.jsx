@@ -771,30 +771,6 @@ export default function Portfolio() {
 
       <Divider/>
 
-      {/* PUBLICATIONS */}
-      <section style={st.section}>
-        <FadeUp>
-          <SectionLabel>Publications</SectionLabel>
-          <div style={{ display:"flex", flexDirection:"column", gap:"1rem" }}>
-            {data.publications.map((pub,i)=>(
-              <a key={i} href={pub.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration:"none" }}>
-                <div style={{ padding:"1.25rem 1.5rem", background:C.bgCard, border:"1px solid rgba(255,255,255,0.07)", borderLeft:`3px solid ${C.teal}`, borderRadius:"8px", transition:"border-color 0.2s, box-shadow 0.2s" }}
-                  className="pub-card">
-                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:"1rem", flexWrap:"wrap" }}>
-                    <div>
-                      <p style={{ fontFamily:"'Times New Roman',Times,serif", fontSize:"1.05rem", fontWeight:700, color:"#EEE9E0", marginBottom:"0.25rem" }}>{pub.title} <span style={{ fontSize:"0.75rem", color:C.teal }}>↗</span></p>
-                      <p style={{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.82rem", color:C.teal, fontWeight:500, marginBottom:"0.5rem", letterSpacing:"0.04em" }}>{pub.outlet}</p>
-                      <p style={{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.9rem", color:C.textMuted, lineHeight:1.65 }}>{pub.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </FadeUp>
-      </section>
-
-      <Divider/>
 
       {/* CONTACT */}
       <section id="contact" style={st.section}>
