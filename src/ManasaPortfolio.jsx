@@ -138,14 +138,6 @@ const data = {
       github:"https://github.com/Manasavijr/llm-agentic-research",
     },
   ],
-  publications: [
-    {
-      title:"Building a Predictive Model for Cancer Detection",
-      outlet:"Medium · Nov 2024",
-      desc:"Compared Random Forest and Linear Regression for early cancer detection — feature importance, model evaluation, and ensemble methods in high-stakes healthcare classification.",
-      link:"https://medium.com/@manasavijayaraghavan/building-a-predictive-model-for-cancer-detection-insights-from-random-forest-and-linear-regression-46ba7729c283",
-    },
-  ],
   skills: [
     { category:"Languages",        items:[{name:"Python",level:95},{name:"SQL",level:90},{name:"Git / GitHub",level:85}] },
     { category:"ML / AI",          items:[{name:"Machine Learning",level:92},{name:"NLP",level:88},{name:"LLMs & RAG",level:85},{name:"Computer Vision",level:80},{name:"Prompt Engineering",level:87}] },
@@ -167,8 +159,11 @@ const data = {
     { title:"Azure ML Engineer", desc:"Microsoft certified ML engineering on Azure", icon:"◆", link:"https://learn.microsoft.com/en-us/certifications/azure-ai-engineer/", badge:"Microsoft" },
     { title:"IEEE Women in Engineering", desc:"Global professional network for women in tech", icon:"◇", link:"https://wie.ieee.org", badge:"IEEE" },
     { title:"Global Immersion Delegate", desc:"Selected delegate · Malaysia · Sustainable Development program", icon:"◇", link:"https://www.linkedin.com/posts/global-understanding-for-sustainable-development_audaciousdreamsfoundation-globalunderstandingforsustainabledevelopment-activity-7119756373826961409-7xK2", badge:"USC" },
+    { title:"AIVerify: An Enhancement of AI Security", desc:"Published on Medium · LLM safety, red teaming & responsible AI · IMDA Singapore Project Moonshot", icon:"✦", link:"https://medium.com/@manasavijayaraghavan/aiverify-an-enhancement-of-ai-security-40298afb7699", badge:"Medium" },
+    { title:"Predictive Model for Cancer Detection", desc:"Published on Medium · Random Forest vs Linear Regression for healthcare ML classification", icon:"✦", link:"https://medium.com/@manasavijayaraghavan/building-a-predictive-model-for-cancer-detection-insights-from-random-forest-and-linear-regression-46ba7729c283", badge:"Medium" },
   ],
 };
+
 
 const NAV_LINKS = ["About","Skills","Experience","Projects","Education","Contact"];
 
