@@ -52,6 +52,13 @@ const data = {
   ],
   experience: [
     {
+      company:"Wipro", role:"AI Native Intern", period:"June 2026 – Present", featured:true,
+      bullets:[
+        "Building agentic AI skills for insurance workflows (claims, fraud, underwriting) on Wipro's WEGA platform using **Claude Code** and **Anthropic Claude API.**",
+        "Designing reusable, production-ready Python solutions integrated into a **multi-agent orchestration** system for enterprise automation."
+      ],
+    },
+    {
       company:"Ford Motor Company", role:"Data Science Intern", period:"Feb 2025 – May 2025", featured:true,
       bullets:[
         "Built multimodal emotion analysis system fusing **facial recognition** (DeepFace), **speech-to-text** (Vosk), and **NLP sentiment** (VADER) — deployed on **GCP Vertex AI** with 75% efficiency gain.",
