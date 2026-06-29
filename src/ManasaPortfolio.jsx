@@ -700,7 +700,7 @@ export default function Portfolio() {
         <FadeUp>
           <SectionLabel>About</SectionLabel>
           <p style={st.aboutAvail}>
-            ✦ Open to Data Science · Analytics · AI/ML · Data Engineering roles · Summer Internships &amp; Co-op / Remote Fall <strong style={{fontWeight:600, fontSize:"1rem", color:"#2DD4BF"}}>2026</strong> · Full-Time from June <strong style={{fontWeight:600, fontSize:"1rem", color:"#2DD4BF"}}>2027</strong> · Open to Hybrid/Remote opportunities.
+            ✦ Open to Data Science · Analytics · AI/ML · Data Engineering roles · Fall Internships &amp; Co-op / Remote Fall <strong style={{fontWeight:600, fontSize:"1rem", color:"#2DD4BF"}}>2026</strong> · Full-Time from June <strong style={{fontWeight:600, fontSize:"1rem", color:"#2DD4BF"}}>2027</strong> · Open to Hybrid/Remote opportunities.
           </p>
           <p style={st.bodyLarge}>{data.about}</p>
 
