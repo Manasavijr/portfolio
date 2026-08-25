@@ -42,7 +42,6 @@ const data = {
     { value:40,  suffix:"%", label:"Faster Resolution — iNextLabs" },
     { value:87,  suffix:"%", label:"AUC on 1M+ Row Model" },
     { value:50,  suffix:"%", label:"Less Manual Review" },
-    { value:4.0, suffix:"",  label:"GPA at USC" },
     { value:1,   suffix:"",  label:"Patent Granted" },
   ],
   strengths: [
@@ -52,24 +51,27 @@ const data = {
   ],
   experience: [
     {
-      company:"Wipro", role:"AI Native Intern", period:"June 2026 – Present", featured:true,
+      company:"Wipro", role:"AI Native Intern", period:"June 2026 – August 2026", featured:true,
       bullets:[
-        "Building agentic AI skills for insurance workflows (claims, fraud, underwriting) on Wipro's WEGA platform using **Claude Code** and **Anthropic Claude API.**",
-        "Designing reusable, production-ready Python solutions integrated into a **multi-agent orchestration** system for enterprise automation."
+        "Built **AgenticOS BFSI Skills**, an agentic decision-support library for **Banking, Financial Services & Insurance**, owning two life-insurance skills end to end.",
+        "Architected multi-step **LangGraph** agent workflows with a **human-in-the-loop** gate, enforcing **maker-checker approval** on every run.",
+        "Engineered deterministic **Python scoring engines** for underwriting tiers and fraud detection, confining the LLM to extraction and narration to eliminate hallucination on key figures.",
+        "Implemented real document ingestion (**PDF/XLSX**) and wired skills to data stores over read-only **MCP servers**.",
+        "Validated with **golden-case regression suites** and an examiner-traceable audit trail on every run."
       ],
     },
     {
       company:"Ford Motor Company", role:"Data Science Intern", period:"Feb 2025 – May 2025", featured:true,
       bullets:[
-        "Built multimodal emotion analysis system fusing **facial recognition** (DeepFace), **speech-to-text** (Vosk), and **NLP sentiment** (VADER) — deployed on **GCP Vertex AI** with 75% efficiency gain.",
-        "Applied computer vision, speech processing, and NLP to real-world multimodal data with a cross-functional corporate AI team.",
+        "Built a **multimodal emotion analysis** system using **Python**, **DeepFace** (facial recognition via OpenCV), **VADER** (text sentiment), and **Vosk** (speech-to-text); fused video, audio, and text modalities into a unified emotion classification, deployed on **GCP** with **Vertex AI**.",
+        "Collaborated with a cross-functional corporate AI team applying **NLP**, **computer vision**, and **speech processing** to real-world multimodal data, improving system efficiency by **75%**.",
       ],
     },
     {
       company:"iNextLabs", role:"Data Science Intern", period:"Aug 2024 – Oct 2024",
       bullets:[
-        "Built **NLP, anomaly detection & GenAI** solutions with **PyTorch + Azure AI** — reducing issue resolution time by **40%**.",
-        "Deployed AI analytics pipelines and dashboards serving **500+ users**; investigated **AI Verify Project Moonshot** (Singapore IMDA) and authored a published technical article on LLM safety, red teaming, and responsible AI.",
+        "Built **NLP, anomaly detection, and GenAI** solutions using **PyTorch** and **Azure AI**; integrated into production systems, reducing issue resolution time by **40%**.",
+        "Designed and deployed **AI analytics pipelines** and dashboards serving **500+ users** across technical and non-technical teams.",
       ],
     },
   ],
@@ -170,8 +172,8 @@ const data = {
     { category:"Cloud",            items:[{name:"GCP",level:85},{name:"Azure ML",level:80},{name:"AWS",level:72},{name:"Docker",level:78},{name:"PostgreSQL",level:85}] },
   ],
   education: [
-    { school:"University of Southern California", degree:"M.S. Applied Data Science", period:"May 2027", detail:"GPA: 4.0 / 4.0 (Semester 1)", location:"Los Angeles, CA" },
-    { school:"SRM Institute of Science and Technology", degree:"B.Tech. Computer Science Engineering", period:"Jun 2025", detail:"GPA: 9.5 / 10", location:"Chennai, India" },
+    { school:"University of Southern California", degree:"M.S. Applied Data Science", period:"May 2027", location:"Los Angeles, CA" },
+    { school:"SRM Institute of Science and Technology", degree:"B.Tech. Computer Science Engineering", period:"Jun 2025", location:"Chennai, India" },
   ],
   certifications: [
     { title:"Patent Filed — SignMate AI", desc:"Filed with Intellectual Property India · Real-time Sign Language translation via CNNs", icon:"✦", badge:"IP India" },
@@ -521,7 +523,7 @@ function Divider() { return <div style={st.divider}/>; }
 function ExpEntry({ e, i }) {
   const isLeft = i % 2 === 0;
   const [ref, vis] = useInView(0.3);
-  const bullets = e.bullets.slice(0, 2);
+  const bullets = e.bullets;
   const card = (
     <div className="exp-card" style={{ ...st.expCard, ...(e.featured ? st.expCardFeatured : st.expCardBase), width:"100%",
       opacity: vis ? 1 : 0,
@@ -677,12 +679,11 @@ export default function Portfolio() {
 
           <div className="hero-statrow" style={st.heroStatRow} ref={heroStatsRef}>
             {[
-              {value:4.0, suffix:"",  label:"GPA · Sem 1"},
               {value:2,   suffix:"",  label:"Internships"},
               {value:1,   suffix:"",  label:"Patent"},
               {value:6,   suffix:"+", label:"Projects"},
             ].map((s,i)=>(
-              <div key={i} style={{ ...st.heroStatRowItem, borderRight:i<3?"1px solid rgba(255,255,255,0.08)":"none" }}>
+              <div key={i} style={{ ...st.heroStatRowItem, borderRight:i<2?"1px solid rgba(255,255,255,0.08)":"none" }}>
                 <span style={{ ...st.heroStatRowNum, color:"#2DD4BF", filter:"drop-shadow(0 0 14px rgba(45,212,191,0.65))" }}>
                   <Counter value={s.value} suffix={s.suffix} animate={heroStatsAnimate}/>
                 </span>
