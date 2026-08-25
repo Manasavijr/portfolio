@@ -30,7 +30,7 @@ S = {
     "contact": ParagraphStyle("contact", fontName="Times-Roman", fontSize=9.5,
                               textColor=INK, leading=12, alignment=TA_CENTER),
     "section": ParagraphStyle("section", fontName="Times-Bold", fontSize=10.5,
-                              textColor=INK, leading=12, spaceBefore=7, spaceAfter=0,
+                              textColor=INK, leading=12, spaceBefore=5, spaceAfter=0,
                               tracking=0.5),
     "sumbody": ParagraphStyle("sumbody", fontName="Times-Roman", fontSize=9.3,
                               textColor=INK, leading=12),
@@ -38,8 +38,8 @@ S = {
                            textColor=INK, leading=12),
     "right": ParagraphStyle("right", fontName="Times-Italic", fontSize=9.3,
                             textColor=INK, leading=12, alignment=2),
-    "bullet": ParagraphStyle("bullet", fontName="Times-Roman", fontSize=9.1,
-                             textColor=INK, leading=11.4),
+    "bullet": ParagraphStyle("bullet", fontName="Times-Roman", fontSize=9.2,
+                             textColor=INK, leading=11.6),
     "skillcat": ParagraphStyle("skillcat", fontName="Times-Bold", fontSize=9.3,
                                textColor=INK, leading=11.6),
     "skill": ParagraphStyle("skill", fontName="Times-Roman", fontSize=9.3,
@@ -63,10 +63,12 @@ def two_col(left, right, ls, rs, w):
     return t
 
 def bullets(items, story):
-    lst = [ListItem(Paragraph(md(b), S["bullet"]), leftIndent=11, value="•")
-           for b in items]
-    story.append(ListFlowable(lst, bulletType="bullet", start="•", leftIndent=11,
-                              bulletColor=black, bulletFontSize=6.5, spaceBefore=1.5))
+    lst = [ListItem(Paragraph(md(b), S["bullet"]), leftIndent=12,
+                    bulletColor=black, value="•") for b in items]
+    story.append(ListFlowable(lst, bulletType="bullet", start="•", leftIndent=12,
+                              bulletOffsetY=-1, bulletDedent=12, bulletColor=black,
+                              bulletFontName="Times-Roman", bulletFontSize=9,
+                              spaceBefore=1))
 
 # ---------------- Content ----------------
 NAME = "Manasa Vijayaraghavan"
@@ -96,8 +98,10 @@ SKILLS = [
 EXPERIENCE = [
     ("Wipro", "AI Native Intern", "June 2026 &ndash; August 2026", [
         "Built **AgenticOS BFSI Skills**, an agentic decision-support library for **Banking, Financial Services & Insurance**, owning two life-insurance skills end to end.",
-        "Architected multi-step **LangGraph** agent workflows with a **human-in-the-loop** maker-checker gate, and deterministic **Python scoring engines** for underwriting tiers and fraud detection &mdash; confining the LLM to extraction and narration to eliminate hallucination on key figures.",
-        "Implemented real document ingestion (**PDF/XLSX**) over read-only **MCP servers**; validated with **golden-case regression suites** and an examiner-traceable audit trail on every run.",
+        "Architected multi-step **LangGraph** agent workflows with a **human-in-the-loop** gate enforcing **maker-checker approval** on every run.",
+        "Engineered deterministic **Python scoring engines** for underwriting tiers and fraud detection, confining the LLM to extraction and narration to eliminate hallucination on key figures.",
+        "Implemented real document ingestion (**PDF/XLSX**) and wired skills to data stores over read-only **MCP servers**.",
+        "Validated with **golden-case regression suites** and an examiner-traceable audit trail on every run.",
     ]),
     ("Ford Motor Company", "Data Science Intern", "Feb 2025 &ndash; May 2025", [
         "Built a **multimodal emotion analysis** system (**Python, DeepFace/OpenCV, VADER, Vosk**) fusing video, audio, and text into a unified classifier deployed on **GCP Vertex AI** &mdash; improving system efficiency by **75%**.",
@@ -162,7 +166,7 @@ def build():
     section("Experience", story)
     for i, (company, role, period, bl) in enumerate(EXPERIENCE):
         if i > 0:
-            story.append(Spacer(1, 3.5))
+            story.append(Spacer(1, 2.5))
         story.append(two_col(f"<b>{company}</b> &mdash; <i>{role}</i>", period,
                              S["left"], S["right"], [W * 0.74, W * 0.26]))
         bullets(bl, story)
