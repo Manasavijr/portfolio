@@ -1,0 +1,85 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[top=0.3in, bottom=0.3in, left=0.5in, right=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black}
+\titleformat{\section}{\bfseries\normalsize\uppercase}{}{0em}{}[\vspace{-4pt}\rule{\linewidth}{0.4pt}]
+\titlespacing{\section}{0pt}{2.8pt}{1.6pt}
+\setlist[itemize]{leftmargin=1.3em, itemsep=0.5pt, topsep=0.5pt, parsep=0pt, label=\textbullet}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+\newcommand{\expentry}[2]{\noindent\textbf{#1}\hfill{\textit{#2}}}
+\newcommand{\proj}[2]{\noindent\textbf{#1} \textit{\small #2}}
+\begin{document}
+
+%% HEADER
+\begin{center}
+{\LARGE\bfseries Manasa Vijayaraghavan}\\[3pt]
+Los Angeles, CA \;$|$\; \href{mailto:manasavijayaraghavan@gmail.com}{manasavijayaraghavan@gmail.com} \;$|$\; (213) 791-7623 \;$|$\; \href{https://linkedin.com/in/manasa-vijayaraghavan}{linkedin.com/in/manasa-vijayaraghavan} \;$|$\; \href{https://github.com/Manasavijr}{github.com/Manasavijr} \;$|$\; \href{https://manasavijayaraghavan.vercel.app}{Portfolio}
+\end{center}
+\vspace{1pt}
+
+%% EDUCATION
+\section{Education}
+\noindent\textbf{University of Southern California}\hfill\textit{Los Angeles, CA}\\
+\textit{M.S. Applied Data Science}\hfill May 2027\\[3pt]
+\noindent\textbf{SRM Institute of Science and Technology}\hfill\textit{Chennai, India}\\
+\textit{B.Tech. Computer Science Engineering}\hfill Jun 2025
+
+%% EXPERIENCE
+\section{Experience}
+\expentry{AI Native Intern --- Wipro}{June 2026 -- Aug 2026}
+\begin{itemize}
+\item Built \textbf{agentic decision-support workflows} for life insurance using Python, \textbf{LangGraph}, and LLMs, orchestrating multi-step data gathering, validation, reasoning, and conditional routing across underwriting and fraud/contestability use cases.
+\item Owned \textbf{Life Underwriting Intelligence} and \textbf{Life Fraud \& Contestability Review} workflows end to end, modeling processes as stateful \textbf{LangGraph} nodes with \textbf{human-in-the-loop} approval gates before consequential decisions.
+\item Integrated agent workflows with enterprise systems including \textbf{Guidewire}, \textbf{ServiceNow}, and \textbf{Majesco}, enabling structured retrieval and exchange of operational data across insurance workflows.
+\end{itemize}
+\vspace{0.6pt}
+\expentry{Data Science Intern --- Ford Motor Company}{Feb 2025 -- May 2025}
+\begin{itemize}
+\item Built \textbf{data pipelines} in Python: ingested, cleaned, and structured raw \textbf{multimodal operational data} across multiple formats; ran exploratory analysis to surface patterns and anomalies before downstream processing; documented \textbf{data provenance} and processing steps; deployed on \textbf{GCP}, improving efficiency by \textbf{75\%}.
+\item Wrote clean, documented, reproducible Python code; collaborated with engineering teams; demonstrated ability to work independently with increasing autonomy.
+\end{itemize}
+\vspace{0.6pt}
+\expentry{Data Science Intern --- iNextLabs}{Aug 2024 -- Oct 2024}
+\begin{itemize}
+\item Built \textbf{NLP data pipelines} processing \textbf{unstructured text data} using Python and Pandas/NumPy; applied \textbf{anomaly detection} on operational datasets; documented processing steps for reproducibility; delivered production data solutions to \textbf{500+ users} (\textbf{40\%} improvement).
+\end{itemize}
+
+%% PROJECTS
+\section{Projects}
+\proj{\textbf{PII Detection} \& Privacy-Preserving Data Pipeline}{(Python, \textbf{spaCy}, \textbf{NLTK}, Pandas, NumPy, \textbf{Regex}, \textbf{Differential Privacy} ($\varepsilon$-DP), Flower (flwr), PyTorch, Git)}
+\begin{itemize}
+\item Built \textbf{PII detection and removal pipeline} using \textbf{spaCy NER} and custom \textbf{Regex} pattern matching: detected and anonymised names, emails, phone numbers, and financial identifiers across unstructured text datasets; implemented \textbf{anonymisation workflows} (masking, pseudonymisation, redaction); applied \textbf{differential privacy} ($\varepsilon$-DP, Gaussian noise) for privacy-preserving data processing across 10+ distributed nodes.
+\item Documented \textbf{data provenance} and processing steps for every dataset through the pipeline; wrote clean, reproducible Python scripts; tested anonymisation workflows end-to-end.
+\end{itemize}
+\vspace{0.6pt}
+\proj{\textbf{Data Quality Scoring} \& Multi-Format Pipeline}{(Python, PySpark, SQL, Pandas, NumPy, SciPy, XGBoost, Isolation Forest, MLflow, GCP, Git)}
+\begin{itemize}
+\item Ingested, cleaned, and structured raw \textbf{operational datasets} across multiple formats on \textbf{1M+ rows}: multi-format data ingestion, schema validation, and quality checks; developed \textbf{data quality scoring} models (XGBoost \textbf{87\% AUC}) assessing dataset value; ran exploratory analysis surfacing patterns, anomalies (\textbf{Isolation Forest}), and coverage gaps before downstream processing.
+\item Built \textbf{automation scripts} improving pipeline efficiency; documented data processing steps and assumptions with MLflow experiment tracking.
+\end{itemize}
+\vspace{0.6pt}
+\proj{SignMate AI}{(\textbf{Patent Filed} --- Python, PyTorch, TensorFlow, OpenCV)}
+\begin{itemize}
+\item Patent filed for a production AI system --- clean, documented, reproducible code shipped end-to-end with real-world impact.
+\end{itemize}
+
+%% SKILLS
+\section{Technical Skills}
+\vspace{1pt}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\textbf{Privacy}       & \textbf{PII Detection}, Anonymisation, \textbf{Differential Privacy} ($\varepsilon$-DP), \textbf{spaCy NER}, Regex \\[1.2pt]
+\textbf{Agentic AI}    & \textbf{LangGraph}, \textbf{Human-in-the-Loop}, \textbf{Anthropic Claude API}, LangChain \\[1.2pt]
+\textbf{Enterprise Systems} & \textbf{Guidewire}, \textbf{ServiceNow}, \textbf{Majesco} \\[1.2pt]
+\textbf{Pipelines}     & Python, Pandas, NumPy, PySpark, SQL, Data Quality Scoring, Multi-Format Ingestion \\[1.2pt]
+\textbf{NLP}           & spaCy, NLTK, HuggingFace, Regex, Text Cleaning, NER, Deduplication \\[1.2pt]
+\textbf{Analysis}      & EDA, Anomaly Detection, Isolation Forest, MLflow, GCP, Git \\[1.2pt]
+\textbf{Recognition}   & \textbf{Patent Filed} (SignMate AI) \\
+\end{tabularx}
+\end{document}
