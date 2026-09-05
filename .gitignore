@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# LaTeX résumé build artifact (source: scripts/resume.tex → public/…resume.pdf)
+scripts/resume.pdf
