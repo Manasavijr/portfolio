@@ -104,7 +104,6 @@ const data = {
     },
     {
       title:"FundedLabs — Research Lab Finder",
-      badge:"DSCI-551",
       summary:"Find funded research labs from NIH and NSF grant data. Solo database project with a relational (MySQL) and a document (MongoDB) component.",
       stack:["Python","MySQL","MongoDB","SQL","NoSQL"],
       impact:"NIH + NSF grant data · relational and document stores side by side.",
@@ -150,7 +149,6 @@ const data = {
     },
     {
       title:"Finance Analytics & NL→SQL Intelligence",
-      badge:"DSCI-551",
       summary:"ETL pipelines for financial data, forecasting models, PostgreSQL + pgvector backend, and LangChain-powered plain-English SQL queries.",
       stack:["Python","PostgreSQL","pgvector","LangChain","SQL","Pandas","FastAPI"],
       impact:"Non-technical users query financial data in plain English · variance and forecasting models surface actionable insights.",
