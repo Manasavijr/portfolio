@@ -34,27 +34,33 @@ document.getElementById("bento").innerHTML=P.map((p,i)=>`<a class="pc" href="${G
  <ul class="hl">${p.i.split(" · ").map(x=>`<li>${CK}<span>${x}</span></li>`).join("")}</ul>
  <div class="ft"><div class="tg">${p.st.map(x=>`<span>${x}</span>`).join("")}</div><span class="ghl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${GHP}"/></svg>Repo</span></div>
 </a>`).join("");
-(()=>{const O=document.getElementById("rec"),R=document.getElementById("ring"),H=document.getElementById("ohint"),n=REC.length,step=360/n;
- const RB=["Filed","TechRxiv","Medium","IBM","AWS","Google"];
- R.innerHTML=REC.map(([k,t,d],i)=>`<article class="oc" data-i="${i}"><div class="c">${k}</div><h3>${t}</h3><p>${d}</p><div class="big">${RB[i]}</div></article>`).join("");
- const cards=[...R.children],SPEED=-.32;let ang=0,held=false,hover=false,drag=null,target=null,inView=true;
- const rad=()=>innerWidth<900?250:400;
- function place(){const r=rad();cards.forEach((c,i)=>c.style.transform=`rotateY(${i*step}deg) translateZ(${r}px)`)}
- place();addEventListener("resize",place);
+(()=>{const O=document.getElementById("rec");if(!O)return;
+ const RB=["Filed","TechRxiv","Medium","IBM","AWS","Google Cloud"],n=REC.length;
+ O.insertAdjacentHTML("beforeend",REC.map(([k,t,d],i)=>`<article class="rk"><div class="c">${k}</div><h4>${t}</h4><p>${d}</p><span class="b">${RB[i]}</span></article>`).join(""));
+ const cards=[...O.querySelectorAll(".rk")],P=O.querySelector("#rpath rect"),H=O.querySelector(".hint");
+ let W,Hh,cw,ch,x0,y0,w,h,r,per,off=0,held=false,inView=true,last=performance.now();
+ function size(){W=O.clientWidth;Hh=O.clientHeight;cw=cards[0].offsetWidth;ch=cards[0].offsetHeight;
+  x0=cw/2;y0=ch/2;w=W-cw;h=Hh-ch;r=Math.min(60,w/4,h/4);per=2*(w+h)-8*r+2*Math.PI*r;
+  P.setAttribute("x",x0);P.setAttribute("y",y0);P.setAttribute("width",w);P.setAttribute("height",h);P.setAttribute("rx",r)}
+ /* point at distance d along a rounded rectangle, clockwise from the top-left straight */
+ function pt(d){d=((d%per)+per)%per;const sw=w-2*r,sh=h-2*r,q=Math.PI*r/2;
+  if(d<sw)return[x0+r+d,y0];d-=sw;
+  if(d<q){const a=-Math.PI/2+d/r;return[x0+w-r+r*Math.cos(a),y0+r+r*Math.sin(a)]}d-=q;
+  if(d<sh)return[x0+w,y0+r+d];d-=sh;
+  if(d<q){const a=d/r;return[x0+w-r+r*Math.cos(a),y0+h-r+r*Math.sin(a)]}d-=q;
+  if(d<sw)return[x0+w-r-d,y0+h];d-=sw;
+  if(d<q){const a=Math.PI/2+d/r;return[x0+r+r*Math.cos(a),y0+h-r+r*Math.sin(a)]}d-=q;
+  if(d<sh)return[x0,y0+h-r-d];d-=sh;
+  const a=Math.PI+d/r;return[x0+r+r*Math.cos(a),y0+r+r*Math.sin(a)]}
+ function place(){cards.forEach((c,i)=>{const[x,y]=pt(off+i*per/n);c.style.transform=`translate(${x-cw/2}px,${y-ch/2}px)`})}
+ size();place();addEventListener("resize",()=>{size();place()});
  new IntersectionObserver(e=>inView=e[0].isIntersecting).observe(O);
- const front=()=>((Math.round(-ang/step)%n)+n)%n;
- function loop(){if(target!==null){const d=target-ang;ang+=d*.1;if(Math.abs(d)<.1){ang=target;target=null}}
-  else if(!held&&!hover&&!drag&&!reduce&&inView)ang+=SPEED;
-  R.style.transform=`translateZ(${-rad()}px) rotateY(${ang}deg)`;const f=front();cards.forEach((c,i)=>{c.classList.toggle("front",i===f);c.style.opacity=i===f?1:.5});requestAnimationFrame(loop)}
+ const SPEED=60; /* px per second */
+ function loop(t){const dt=Math.min(64,t-last);last=t;if(!held&&!reduce&&inView){off+=SPEED*dt/1000;place()}requestAnimationFrame(loop)}
  requestAnimationFrame(loop);
- function hold(on){held=on;O.classList.toggle("held",on);H.textContent=on?"paused · let go to keep spinning":"press and hold to stop · drag to spin"}
- O.addEventListener("pointerdown",e=>{if(e.target.closest("a"))return;hold(true);drag={x:e.clientX,a:ang,m:0};target=null;O.setPointerCapture(e.pointerId)});
- O.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-drag.x;drag.m=Math.max(drag.m,Math.abs(dx));if(drag.m>6)ang=drag.a+dx*.3});
- function release(e){if(!drag)return;const moved=drag.m>6;drag=null;hold(false);if(moved)target=Math.round(ang/step)*step}
- O.addEventListener("pointerup",release);O.addEventListener("pointercancel",release);
- /* pause while the mouse is over the front card so its GitHub link is easy to click */
- R.addEventListener("pointerover",e=>{if(e.pointerType==="mouse"&&e.target.closest(".oc.front"))hover=true});
- R.addEventListener("pointerout",e=>{if(e.pointerType==="mouse"&&!(e.relatedTarget&&e.relatedTarget.closest&&e.relatedTarget.closest(".oc.front")))hover=false});
+ function hold(on){held=on;O.classList.toggle("held",on);if(H)H.textContent=on?"paused · let go to keep moving":"press and hold to stop"}
+ O.addEventListener("pointerdown",e=>{hold(true);O.setPointerCapture(e.pointerId)});
+ O.addEventListener("pointerup",()=>hold(false));O.addEventListener("pointercancel",()=>hold(false));
  O.addEventListener("contextmenu",e=>e.preventDefault());
 })();
 // jobs
