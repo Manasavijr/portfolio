@@ -37,8 +37,8 @@ document.getElementById("bento").innerHTML=P.map((p,i)=>`<a class="pc" href="${G
 (()=>{const O=document.getElementById("rec");if(!O)return;
  const RB=["Filed","TechRxiv","Medium","IBM","AWS","Google Cloud"],n=REC.length;
  O.insertAdjacentHTML("beforeend",REC.map(([k,t,d],i)=>`<article class="rk"><div class="c">${k}</div><h4>${t}</h4><p>${d}</p><span class="b">${RB[i]}</span></article>`).join(""));
- const cards=[...O.querySelectorAll(".rk")],P=O.querySelector("#rpath rect"),H=O.querySelector(".hint");
- let W,Hh,cw,ch,x0,y0,w,h,r,per,off=0,held=false,inView=true,last=performance.now();
+ const cards=[...O.querySelectorAll(".rk")],P=O.querySelector("#rpath rect");
+ let W,Hh,cw,ch,x0,y0,w,h,r,per,off=0,inView=true,last=performance.now();
  function size(){W=O.clientWidth;Hh=O.clientHeight;cw=cards[0].offsetWidth;ch=cards[0].offsetHeight;
   x0=cw/2;y0=ch/2;w=W-cw;h=Hh-ch;r=Math.min(60,w/4,h/4);per=2*(w+h)-8*r+2*Math.PI*r;
   P.setAttribute("x",x0);P.setAttribute("y",y0);P.setAttribute("width",w);P.setAttribute("height",h);P.setAttribute("rx",r)}
@@ -56,12 +56,8 @@ document.getElementById("bento").innerHTML=P.map((p,i)=>`<a class="pc" href="${G
  size();place();addEventListener("resize",()=>{size();place()});
  new IntersectionObserver(e=>inView=e[0].isIntersecting).observe(O);
  const SPEED=60; /* px per second */
- function loop(t){const dt=Math.min(64,t-last);last=t;if(!held&&!reduce&&inView){off+=SPEED*dt/1000;place()}requestAnimationFrame(loop)}
+ function loop(t){const dt=Math.min(64,t-last);last=t;if(!reduce&&inView){off+=SPEED*dt/1000;place()}requestAnimationFrame(loop)}
  requestAnimationFrame(loop);
- function hold(on){held=on;O.classList.toggle("held",on);if(H)H.textContent=on?"paused · let go to keep moving":"press and hold to stop"}
- O.addEventListener("pointerdown",e=>{hold(true);O.setPointerCapture(e.pointerId)});
- O.addEventListener("pointerup",()=>hold(false));O.addEventListener("pointercancel",()=>hold(false));
- O.addEventListener("contextmenu",e=>e.preventDefault());
 })();
 // jobs
 document.getElementById("jobs").innerHTML=J.map((j,i)=>`<div class="job rv"><div class="when">${j.d}</div><div><h3>${j.c}</h3><div class="role">${j.r}</div><ul>${j.b.map(x=>`<li>${x}</li>`).join("")}</ul>${j.m.length?`<ul class="more" style="margin-top:9px">${j.m.map(x=>`<li>${x}</li>`).join("")}</ul><button class="tog" type="button" id="tog-${i}">+ More detail</button>`:""}</div></div>`).join("");
