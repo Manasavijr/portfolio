@@ -375,3 +375,7 @@ h2{font-size:clamp(38px,4.8vw,60px)}
  .contact{padding-block:72px 36px}
 }
 @media (max-width:520px){.skills{grid-template-columns:1fr 1fr;column-gap:18px}.sg h3{font-size:19px}}
+
+.crow{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+.resrow{display:inline-flex;align-items:center;gap:8px;font:600 13px var(--sans);color:var(--ink);border:1px solid var(--line2);border-radius:999px;padding:16px 22px;background:rgba(255,255,255,.02);transition:border-color .25s,box-shadow .25s,transform .25s,color .25s}
+.resrow:hover{border-color:rgba(232,194,122,.6);color:#E8C27A;box-shadow:0 10px 40px rgba(232,194,122,.14);transform:translateY(-2px)}
