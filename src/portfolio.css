@@ -336,3 +336,44 @@ footer{border-top:1px solid var(--line);padding-block:26px;display:flex;justify-
 @media (max-width:900px){.lab{grid-template-columns:1fr}}
 @media (max-width:520px){.cols{grid-template-columns:1fr}.stages{grid-template-columns:1fr 1fr}.rr{grid-template-columns:56px 1fr 56px}.scale{margin-left:68px;padding-right:68px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv.pre{transform:none}}
+
+/* ---- concise pass: tighter spacing, less scrolling ---- */
+section{padding-block:76px 0}
+.sh{margin-bottom:26px}
+h2{font-size:clamp(38px,4.8vw,60px)}
+.lm{gap:10px;margin-bottom:24px}
+.lg{padding:10px 18px 10px 14px;font-size:19px;gap:10px}
+.lg svg{width:21px;height:21px}
+.skills{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:32px}
+.sg{padding:18px 0;gap:10px}
+.sg h3{font-size:22px}
+.sg h3 small{display:block;margin:0 0 6px}
+.sg ul{gap:6px 14px}
+.sg li{font-size:14px;gap:7px}
+.sg li svg{width:14px;height:14px}
+.lc{padding:24px;gap:16px}
+.lc h3{font-size:clamp(28px,3vw,38px)}
+.lab .cols{display:none}
+.spot .stage{min-height:300px}
+.job{padding-block:20px;gap:22px}
+.job h3{font-size:28px}
+.job .role{margin:2px 0 10px}
+.job ul{gap:6px}
+.job li{line-height:1.5}
+.rtrack{height:330px}
+.rk{height:108px;padding:12px 14px}
+.rk h4{font-size:18px}
+.contact{padding-block:96px 44px}
+.contact h2{font-size:clamp(44px,7vw,92px)}
+@media (max-width:1000px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+ section{padding-block:56px 0}
+ .lab,.pgrid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding:0 16px 8px;scrollbar-width:none}
+ .lab::-webkit-scrollbar,.pgrid::-webkit-scrollbar{display:none}
+ .lab>.lc{flex:0 0 88%;scroll-snap-align:center}
+ .pgrid>.pc{flex:0 0 82%;scroll-snap-align:center}
+ .rtrack{height:560px}
+ .rk{height:104px}
+ .contact{padding-block:72px 36px}
+}
+@media (max-width:520px){.skills{grid-template-columns:1fr 1fr;column-gap:18px}.sg h3{font-size:19px}}
