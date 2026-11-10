@@ -56,7 +56,7 @@ document.getElementById("bento").innerHTML=P.map((p,i)=>`<a class="pc" href="${G
  size();place();addEventListener("resize",()=>{size();place()});
  new IntersectionObserver(e=>inView=e[0].isIntersecting).observe(O);
  const SPEED=60; /* px per second */
- function loop(t){const dt=Math.min(64,t-last);last=t;if(!reduce&&inView){off+=SPEED*dt/1000;place()}requestAnimationFrame(loop)}
+ function loop(t){const dt=Math.min(64,t-last);last=t;if(inView){off+=SPEED*dt/1000;place()}requestAnimationFrame(loop)}
  requestAnimationFrame(loop);
 })();
 // jobs
@@ -90,7 +90,7 @@ const cg=document.getElementById("cglow");addEventListener("pointermove",e=>{if(
 
 // nav scrollspy, sliding pill, progress, timeline fill
 const links=[...document.querySelectorAll("#navl a")],pip=document.getElementById("pip"),prog=document.getElementById("prog");
-function placePip(a){if(!a){pip.style.width="0";return}const ul=a.parentElement.parentElement.getBoundingClientRect(),r=a.getBoundingClientRect();pip.style.left=r.left-ul.left+"px";pip.style.width=r.width+"px"}
+function placePip(a){if(!a){pip.style.width="0";return}const ul=a.parentElement.parentElement.getBoundingClientRect(),r=a.getBoundingClientRect();const box=a.parentElement.parentElement;pip.style.left=r.left-ul.left+box.scrollLeft+"px";pip.style.width=r.width+"px";if(box.scrollWidth>box.clientWidth){const t=a.offsetLeft-(box.clientWidth-a.offsetWidth)/2;box.scrollTo({left:t,behavior:"smooth"})}}
 function onScroll(){const max=document.documentElement.scrollHeight-innerHeight;prog.style.setProperty("--p",(scrollY/max*100).toFixed(2)+"%");
  let cur=null;links.forEach(a=>{const s=document.getElementById(a.dataset.s);if(s.getBoundingClientRect().top<innerHeight*.45)cur=a});
  links.forEach(a=>a.classList.toggle("on",a===cur));placePip(cur);
