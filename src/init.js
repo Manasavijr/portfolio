@@ -24,9 +24,16 @@ const arrow='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-w
 // filters + bento
 const B=document.getElementById("bento");
 const SH=["Agentic RAG","Local RAG","Federated Learning","MLOps Platform","Fraud & Churn","Finance NL→SQL"];
-const BIG=[["6","domain tools for the ReAct agent"],["$0","API cost · sub-second retrieval"],["98.8%","accuracy · within 0.4% of centralized"],["10/10","tests on every push"],["98.7%","AUC on a 2% fraud rate"],["NL→SQL","ETL, forecasting and Q&A"]];
 const GHA=arrow.replace('<svg','<svg width="12" height="12"');
-document.getElementById("bento").innerHTML=P.map((p,i)=>`<article class="pc"><div class="c">${CATS.find(x=>x[0]==p.c[0])[1]}</div><h3>${SH[i]}</h3><p>${p.s}</p><div class="big">${BIG[i][0]}</div><div class="bl">${BIG[i][1]}</div><a href="${GH+p.gh}" target="_blank" rel="noopener" aria-label="${p.t} on GitHub">View on GitHub ${GHA}</a></article>`).join("");
+const GHP="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12";
+const CK='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>';
+const CI={llm:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="M11 7l-5 9M13 7l5 9M7.2 18h9.6"/></svg>',ml:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>'};
+document.getElementById("bento").innerHTML=P.map((p,i)=>`<a class="pc" href="${GH+p.gh}" target="_blank" rel="noopener" aria-label="${p.t} on GitHub">
+ <div class="top"><span class="ci">${CI[p.c[0]]||CI.ml}</span><span class="c">${CATS.find(x=>x[0]==p.c[0])[1]}</span><span class="go">${GHA}</span></div>
+ <h3>${SH[i]}</h3><p>${p.s}</p>
+ <ul class="hl">${p.i.split(" · ").map(x=>`<li>${CK}<span>${x}</span></li>`).join("")}</ul>
+ <div class="ft"><div class="tg">${p.st.map(x=>`<span>${x}</span>`).join("")}</div><span class="ghl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${GHP}"/></svg>Repo</span></div>
+</a>`).join("");
 (()=>{const O=document.getElementById("rec"),R=document.getElementById("ring"),H=document.getElementById("ohint"),n=REC.length,step=360/n;
  const RB=["Filed","TechRxiv","Medium","IBM","AWS","Google"];
  R.innerHTML=REC.map(([k,t,d],i)=>`<article class="oc" data-i="${i}"><div class="c">${k}</div><h3>${t}</h3><p>${d}</p><div class="big">${RB[i]}</div></article>`).join("");
