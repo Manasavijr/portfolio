@@ -453,10 +453,41 @@ function ProjectCard({ p, i, visible }) {
   );
 }
 
+const FEATURED = ["SignMate AI","When Does RL Beat SFT?","Production MLOps Platform","LLM Agentic AI","Fraud Detection","Privacy-Preserving Federated"];
+function orderedProjects() {
+  const f = FEATURED.map(t => data.projects.find(p => p.title.startsWith(t))).filter(Boolean);
+  return [...f, ...data.projects.filter(p => !f.includes(p))];
+}
 function ProjectsGrid() {
   const [ref, visible] = useInView(0.05);
+  const layout = new URLSearchParams(window.location.search).get("layout");
+  const [showAll, setShowAll] = useState(false);
+  const grid = { display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.25rem" };
+  const btn = { margin:"2rem auto 0", display:"block", background:"transparent", color:"#48B5C8", border:"1px solid rgba(72,181,200,0.45)", borderRadius:"4px", padding:"0.7rem 1.6rem", fontFamily:"'Times New Roman',Times,serif", fontSize:"0.78rem", letterSpacing:"0.14em", textTransform:"uppercase", cursor:"pointer" };
+  if (layout === "a") {
+    const list = orderedProjects(); const shown = showAll ? list : list.slice(0,6);
+    return (<div ref={ref}>
+      <div className="project-card-grid" style={grid}>{shown.map((p,i) => <ProjectCard key={p.title} p={p} i={i} visible={visible}/>)}</div>
+      <button style={btn} onClick={()=>setShowAll(!showAll)}>{showAll ? "Show fewer" : `View all ${list.length} projects`}</button>
+    </div>);
+  }
+  if (layout === "b") {
+    const list = orderedProjects(); const top = list.slice(0,3), rest = list.slice(3);
+    return (<div ref={ref}>
+      <div className="project-card-grid" style={grid}>{top.map((p,i) => <ProjectCard key={p.title} p={p} i={i} visible={visible}/>)}</div>
+      <p style={{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.7rem", letterSpacing:"0.16em", textTransform:"uppercase", color:"rgba(255,255,255,0.35)", margin:"2.5rem 0 0.6rem" }}>More projects</p>
+      <div>{rest.map(p => (
+        <a key={p.title} href={p.github || undefined} target="_blank" rel="noopener noreferrer" style={{ display:"grid", gridTemplateColumns:"1fr auto", alignItems:"baseline", gap:"1rem", padding:"0.95rem 0", borderTop:"1px solid rgba(255,255,255,0.08)", textDecoration:"none" }}>
+          <span>
+            <span style={{ fontFamily:"'Times New Roman',Times,serif", fontSize:"1.05rem", fontWeight:700, color:"#EEE9E0" }}>{p.title}</span>
+            {p.badge && <span style={{ marginLeft:"0.7rem", fontSize:"0.6rem", letterSpacing:"0.1em", textTransform:"uppercase", color:"#48B5C8", border:"1px solid rgba(72,181,200,0.3)", padding:"0.1rem 0.4rem", borderRadius:"3px", fontFamily:"'Times New Roman',Times,serif" }}>{p.badge}</span>}
+          </span>
+          <span style={{ fontFamily:"'Times New Roman',Times,serif", fontSize:"0.85rem", color:"rgba(255,255,255,0.4)" }}>{p.stack.slice(0,3).join(" · ")}</span>
+        </a>))}</div>
+    </div>);
+  }
   return (
-    <div ref={ref} className="project-card-grid" style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:"1.25rem" }}>
+    <div ref={ref} className="project-card-grid" style={grid}>
       {data.projects.map((p,i) => <ProjectCard key={i} p={p} i={i} visible={visible}/>)}
     </div>
   );
