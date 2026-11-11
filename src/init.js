@@ -34,31 +34,7 @@ document.getElementById("bento").innerHTML=P.map((p,i)=>`<a class="pc" href="${G
  <ul class="hl">${p.i.split(" · ").map(x=>`<li>${CK}<span>${x}</span></li>`).join("")}</ul>
  <div class="ft"><div class="tg">${p.st.map(x=>`<span>${x}</span>`).join("")}</div><span class="ghl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${GHP}"/></svg>Repo</span></div>
 </a>`).join("");
-(()=>{const O=document.getElementById("rec");if(!O)return;
- const RB=["Filed","TechRxiv","Medium","IBM","AWS","Google Cloud"],n=REC.length;
- O.insertAdjacentHTML("beforeend",REC.map(([k,t,d],i)=>`<article class="rk"><div class="c">${k}</div><h4>${t}</h4><p>${d}</p><span class="b">${RB[i]}</span></article>`).join(""));
- const cards=[...O.querySelectorAll(".rk")],P=O.querySelector("#rpath rect");
- let W,Hh,cw,ch,x0,y0,w,h,r,per,off=0,inView=true,last=performance.now();
- function size(){W=O.clientWidth;Hh=O.clientHeight;cw=cards[0].offsetWidth;ch=cards[0].offsetHeight;
-  x0=cw/2;y0=ch/2;w=W-cw;h=Hh-ch;r=Math.min(60,w/4,h/4);per=2*(w+h)-8*r+2*Math.PI*r;
-  P.setAttribute("x",x0);P.setAttribute("y",y0);P.setAttribute("width",w);P.setAttribute("height",h);P.setAttribute("rx",r)}
- /* point at distance d along a rounded rectangle, clockwise from the top-left straight */
- function pt(d){d=((d%per)+per)%per;const sw=w-2*r,sh=h-2*r,q=Math.PI*r/2;
-  if(d<sw)return[x0+r+d,y0];d-=sw;
-  if(d<q){const a=-Math.PI/2+d/r;return[x0+w-r+r*Math.cos(a),y0+r+r*Math.sin(a)]}d-=q;
-  if(d<sh)return[x0+w,y0+r+d];d-=sh;
-  if(d<q){const a=d/r;return[x0+w-r+r*Math.cos(a),y0+h-r+r*Math.sin(a)]}d-=q;
-  if(d<sw)return[x0+w-r-d,y0+h];d-=sw;
-  if(d<q){const a=Math.PI/2+d/r;return[x0+r+r*Math.cos(a),y0+h-r+r*Math.sin(a)]}d-=q;
-  if(d<sh)return[x0,y0+h-r-d];d-=sh;
-  const a=Math.PI+d/r;return[x0+r+r*Math.cos(a),y0+r+r*Math.sin(a)]}
- function place(){cards.forEach((c,i)=>{const[x,y]=pt(off+i*per/n);c.style.transform=`translate(${x-cw/2}px,${y-ch/2}px)`})}
- size();place();addEventListener("resize",()=>{size();place()});
- new IntersectionObserver(e=>inView=e[0].isIntersecting).observe(O);
- const SPEED=60; /* px per second */
- function loop(t){const dt=Math.min(64,t-last);last=t;if(inView){off+=SPEED*dt/1000;place()}requestAnimationFrame(loop)}
- requestAnimationFrame(loop);
-})();
+document.getElementById("rec").innerHTML=REC.map(([k,t,d])=>`<article class="rk"><div class="c">${k}</div><h4>${t}</h4><p>${d}</p></article>`).join("");
 // jobs
 document.getElementById("jobs").innerHTML=J.map((j,i)=>`<div class="job rv"><div class="when">${j.d}</div><div><h3>${j.c}</h3><div class="role">${j.r}</div><ul>${j.b.map(x=>`<li>${x}</li>`).join("")}</ul>${j.m.length?`<ul class="more" style="margin-top:9px">${j.m.map(x=>`<li>${x}</li>`).join("")}</ul><button class="tog" type="button" id="tog-${i}">+ More detail</button>`:""}</div></div>`).join("");
 document.getElementById("jobs").addEventListener("click",e=>{const t=e.target.closest(".tog");if(!t)return;const j=t.closest(".job");j.classList.toggle("open");t.textContent=j.classList.contains("open")?"− Less":"+ More detail"});

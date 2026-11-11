@@ -49,54 +49,33 @@
 
 
   <section id="lab" class="gut"><div class="wrap">
-    <div class="sh"><div><div class="k">In the lab</div><h2>What I'm <em>building</em> now</h2></div><p>Two projects in progress this fall. Early results are shown as they stand today.</p></div>
+    <div class="sh"><div><div class="k">Now</div><h2>What I'm <em>building</em> now</h2></div></div>
     <div class="lab">
       <article class="lc rv">
-        <div class="head"><span class="live"><i></i>In progress</span><span class="course">Fall 2026 · team study</span></div>
-        <h3>When does <em>RL</em> beat fine-tuning?</h3>
-        <p class="q">Is reinforcement learning worth it over plain supervised fine-tuning at the same compute? We compare GRPO against SFT on Qwen3.5-4B and Llama-3.2-3B with LoRA on A100s, across logic, math and coding tasks.</p>
-        <div class="stages" data-stages="2"><div class="stg done"><div class="b"><i></i></div>Setup</div><div class="stg done"><div class="b"><i></i></div>Training</div><div class="stg now"><div class="b"><i></i></div>Evaluation</div><div class="stg"><div class="b"><i></i></div>Write-up</div></div>
-        <div class="result">
-          <div class="k">Early signal · Shortest Path · training accuracy under GRPO</div>
-          <div class="rr"><span>start</span><div class="track"><span class="seg a" style="--l:10%" data-w="20%"></span></div><span>10–30%</span></div>
-          <div class="rr"><span>now</span><div class="track"><span class="seg z" style="--l:80%" data-w="11%"></span></div><span>80–91%</span></div>
-          <div class="scale"><span>0</span><span>50</span><span>100%</span></div>
-          <p class="note">Training numbers only. Held-out evaluation and the matched-compute comparison are still running.</p>
-        </div>
-        <div class="cols">
-          <div class="dn"><h4>My part, done</h4><ul><li>Shared compute-budget module (FLOPs and GPU-hours per run)</li><li>Metrics module: reward, accept rate, advantages, truncation, stability alerts</li></ul></div>
-          <div class="nx"><h4>Findings so far</h4><ul><li>Knights &amp; Knaves saturates early</li><li>Countdown responses hit the length limit</li></ul></div>
-        </div>
-        <div class="tags"><span class="tag">GRPO</span><span class="tag">SFT</span><span class="tag">LoRA</span><span class="tag">PyTorch</span><span class="tag">Qwen3.5-4B</span><span class="tag">Llama-3.2-3B</span></div>
+        <div class="head"><span class="live"><i></i>In progress</span><span class="course">Fall 2026 · team project</span></div>
+        <h3>RL vs <em>fine-tuning</em></h3>
+        <p class="q">Testing whether reinforcement learning (GRPO) trains small open LLMs better than standard fine-tuning for the same compute.</p>
+        <p class="st"><b>Status</b>Training done, evaluation running.</p>
+        <div class="tags"><span class="tag">GRPO</span><span class="tag">LoRA</span><span class="tag">PyTorch</span><span class="tag">Qwen</span><span class="tag">Llama</span></div>
       </article>
       <article class="lc rv">
         <div class="head"><span class="live"><i></i>In progress</span><span class="course">Fall 2026 · solo</span></div>
         <h3>Funded<em>Labs</em></h3>
-        <p class="q">Find research labs that actually have funding. FundedLabs brings NIH and NSF grant data together so you can see which labs are funded and for what.</p>
-        <div class="stages" data-stages="2"><div class="stg done"><div class="b"><i></i></div>Data</div><div class="stg done"><div class="b"><i></i></div>Databases</div><div class="stg now"><div class="b"><i></i></div>Search</div><div class="stg"><div class="b"><i></i></div>Launch</div></div>
-        <div class="dbviz" aria-label="NIH and NSF data flowing into MySQL and MongoDB">
-          <div class="src"><span>NIH grants</span><span>NSF grants</span></div>
-          <svg class="flow" viewBox="0 0 70 60" fill="none" aria-hidden="true"><path d="M2 16 C35 16 35 16 68 16" stroke="#5CC8D6" stroke-width="1.5"/><path d="M2 44 C35 44 35 16 68 16" stroke="#5CC8D6" stroke-width="1.5" opacity=".6"/><path d="M2 16 C35 16 35 44 68 44" stroke="#2DD4BF" stroke-width="1.5" opacity=".6"/><path d="M2 44 C35 44 35 44 68 44" stroke="#2DD4BF" stroke-width="1.5"/></svg>
-          <div class="dst"><span>MySQL · relational</span><span>MongoDB · documents</span></div>
-        </div>
-        <div class="cols">
-          <div class="dn"><h4>Done</h4><ul><li>NIH and NSF grant data collected</li><li>Relational model in MySQL and a document model in MongoDB</li></ul></div>
-          <div class="nx"><h4>Coming next</h4><ul><li>Search for labs by topic and funding</li></ul></div>
-        </div>
-        <div class="tags"><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">SQL</span><span class="tag">NoSQL</span></div>
+        <p class="q">A search tool that shows which university research labs have active NIH and NSF grant funding.</p>
+        <p class="st"><b>Status</b>Data and databases done, building search.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">MongoDB</span></div>
       </article>
     </div>
   </div></section>
 
   <section id="work" class="gut"><div class="wrap">
-    <div class="sh"><div><div class="k">Selected work</div><h2>Things I've <em>built</em></h2></div><p>A patent-filed vision system, then a few favorites from GitHub. Each card opens its repo.</p></div>
+    <div class="sh"><div><div class="k">Selected work</div><h2>Things I've <em>built</em></h2></div></div>
     <article class="spot rv" aria-label="SignMate AI">
       <div class="txt">
         <div class="pat"><span>Patent filed · IP India</span><span>Published</span></div>
         <h3>SignMate <em>AI</em></h3>
-        <p>A real-time system that watches a signer through the camera and translates Indian Sign Language into text. A CNN reads hand landmarks frame by frame, built with PyTorch and OpenCV on a dataset I labeled myself.</p>
-        <div class="facts"><div><b>Real-time</b><span>frame-by-frame inference</span></div><div><b>Custom</b><span>hand-labeled ISL dataset</span></div><div><b>Patent</b><span>filed with IP India</span></div></div>
-        <div class="tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">CNNs</span><span class="tag">Computer Vision</span></div>
+        <p>Translates Indian Sign Language into text in real time from a camera, using a CNN trained on a dataset I labeled myself.</p>
+        <div class="tags"><span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">CNNs</span></div>
       </div>
       <div class="stage"><canvas id="hand" aria-hidden="true"></canvas><span class="corner c1"></span><span class="corner c2"></span>
         <div class="hud"><div class="out"><small>ISL → TEXT</small><span id="sgword">HELLO</span></div><div class="conf">confidence<b id="sgconf">0.97</b></div></div></div>
@@ -105,13 +84,14 @@
   </div></section>
 
   <section id="experience" class="gut"><div class="wrap">
-    <div class="sh"><div><div class="k">Experience</div><h2>Where I've <em>worked</em></h2></div><p>Enterprise agents, privacy-first data platforms and applied ML across four teams.</p></div>
+    <div class="sh"><div><div class="k">Experience</div><h2>Where I've <em>worked</em></h2></div></div>
     <div class="tl" id="tl"><div class="rail"></div><div class="fill" id="tlfill"></div><div id="jobs"></div></div>
   </div></section>
 
 
   <section id="recognition" class="gut"><div class="wrap">
-    <div class="rtrack" id="rec" aria-label="Patents, papers and certificates moving around a loop"><svg class="rpath" id="rpath" aria-hidden="true"><rect/></svg><div class="mid"><b>Recognition</b></div></div>
+    <div class="sh"><div><div class="k">Recognition</div><h2>Patents, papers &amp; <em>certificates</em></h2></div></div>
+    <div class="rgrid" id="rec"></div>
   </div></section>
 
   <div class="contact gut" id="contact"><div class="wrap">

@@ -2,7 +2,7 @@
    glowing timeline, typographic skills (no boxes, no scales), big contact close. */
 :root{
   --bg:#07090D; --bg2:#0B0E14; --card:#0F131A; --card2:#131822;
-  --ink:#ECE8E1; --mute:rgba(236,232,225,.58); --faint:rgba(236,232,225,.32);
+  --ink:#ECE8E1; --mute:rgba(236,232,225,.8); --faint:rgba(236,232,225,.58);
   --line:rgba(255,255,255,.075); --line2:rgba(255,255,255,.14);
   --teal:#5CC8D6; --mint:#2DD4BF; --ice:#A5F0F7;
   --disp:"Instrument Serif",Georgia,"Times New Roman",serif;
@@ -379,3 +379,11 @@ h2{font-size:clamp(38px,4.8vw,60px)}
 .crow{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
 .resrow{display:inline-flex;align-items:center;gap:8px;font:600 13px var(--sans);color:var(--ink);border:1px solid var(--line2);border-radius:999px;padding:16px 22px;background:rgba(255,255,255,.02);transition:border-color .25s,box-shadow .25s,transform .25s,color .25s}
 .resrow:hover{border-color:rgba(232,194,122,.6);color:#E8C27A;box-shadow:0 10px 40px rgba(232,194,122,.14);transform:translateY(-2px)}
+
+/* clarity pass */
+.lc .st{font-size:14.5px;color:var(--ink)}
+.lc .st b{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#E8C27A;margin-right:10px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rgrid .rk{position:relative;width:auto;height:auto;transform:none;pointer-events:auto}
+@media (max-width:900px){.rgrid{grid-template-columns:1fr 1fr}.rgrid .rk{width:auto;height:auto}}
+@media (max-width:520px){.rgrid{grid-template-columns:1fr}}
