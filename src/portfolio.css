@@ -422,3 +422,6 @@ h2{font-size:clamp(38px,4.8vw,60px)}
 }
 .pc.nogh{cursor:default}
 .ghl.pat{color:#E8C27A;font:500 12px var(--sans)}
+
+/* living diagrams */
+.pc .viz{display:block;margin:-22px -22px 6px;width:calc(100% + 44px);height:130px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(92,200,214,.06),transparent);border-radius:20px 20px 0 0}
