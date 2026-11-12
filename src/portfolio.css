@@ -500,3 +500,8 @@ h2{font-size:clamp(38px,4.8vw,60px)}
 /* more visible tags */
 .tag{color:var(--ink);background:rgba(92,200,214,.08);border-color:rgba(92,200,214,.32)}
 .pc .tg span{color:var(--mute)}
+
+/* hero education line */
+.edu{display:flex;align-items:center;gap:10px;margin:-14px 0 28px;font-size:14px;color:var(--mute);animation:fade 1s .55s both}
+.edu svg{width:18px;height:18px;color:#E8C27A;flex:none}
+.edu b{color:var(--ink);font-weight:500}
