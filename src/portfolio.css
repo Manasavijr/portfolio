@@ -497,3 +497,6 @@ h2{font-size:clamp(38px,4.8vw,60px)}
 .lg{padding:7px 14px 7px 10px;font-size:15px;gap:8px}
 .lg svg{width:16px;height:16px}
 @media (max-width:820px){.lg{font-size:14px;padding:6px 12px 6px 9px}.lg svg{width:15px;height:15px}}
+/* more visible tags */
+.tag{color:var(--ink);background:rgba(92,200,214,.08);border-color:rgba(92,200,214,.32)}
+.pc .tg span{color:var(--mute)}
