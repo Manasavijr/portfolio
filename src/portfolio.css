@@ -462,13 +462,13 @@ h2{font-size:clamp(38px,4.8vw,60px)}
 @media (max-width:820px){.xsw{grid-template-columns:1fr}.xlist{flex-direction:row;overflow-x:auto;scrollbar-width:none;gap:2px}.xlist::-webkit-scrollbar{display:none}.xlist button{flex:none;padding:10px 14px 14px}.xlist button b{font-size:19px}.xnext{order:3;margin-top:0}.xl{display:contents}.xp{order:2}}
 
 /* experience: diagonal timeline */
-.dg{position:relative;height:640px}
+.dg{position:relative;height:760px}
 .dgp{position:absolute;inset:0;pointer-events:none;overflow:visible}
 .dgp path{fill:none;stroke-width:2.5;stroke-linecap:round}
 .dgp .base{stroke:var(--line2);stroke-dasharray:4 6}
 .dgp .glow{filter:drop-shadow(0 0 6px rgba(92,200,214,.6))}
 .dgp .trav{fill:#fff;filter:drop-shadow(0 0 8px #5CC8D6)}
-.ds{position:absolute;left:calc(var(--i)*19.6%);top:calc((4 - var(--i))*84px);width:19%;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.ds{position:absolute;left:calc(var(--i)*19.6%);top:calc(450px - var(--i)*12px);width:19%;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 .ds .pin{position:relative;z-index:1;width:18px;height:18px;margin-left:16px;border-radius:50%;background:var(--bg);border:2px solid var(--line2);transition:all .5s}
 .ds .pin.lit{background:var(--teal);border-color:var(--teal);box-shadow:0 0 0 6px rgba(92,200,214,.16),0 0 18px rgba(92,200,214,.6)}
 .ds.next .pin{border-style:dashed;border-color:#E8C27A}
@@ -486,3 +486,7 @@ h2{font-size:clamp(38px,4.8vw,60px)}
 .ds.next .role,.ds.next .go{color:#E8C27A}
 .ds.next .go{font:600 13px var(--sans);margin-top:8px}
 @media (max-width:1000px){.dg{height:auto;display:grid;gap:18px;padding-left:40px}.ds{position:relative;left:auto;top:auto;width:auto;flex-direction:row;align-items:flex-start;gap:0}.ds .pin{position:absolute;left:-40px;top:20px;margin:0}.dgp .glow{filter:none}}
+
+.ds.up{flex-direction:column-reverse;top:calc(340px - var(--i)*12px + 18px);transform:translateY(-100%)}
+.dgp path{stroke-linejoin:round}
+@media (max-width:1000px){.ds.up{flex-direction:row;transform:none;top:auto}}

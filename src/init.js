@@ -63,11 +63,11 @@ function drawJob(C,k,s){
 }
 // experience: diagonal timeline climbing to 2027
 (()=>{const G=document.getElementById("dg");if(!G)return;const O=J.slice().reverse();
- G.insertAdjacentHTML("beforeend",O.map((j,i)=>`<article class="ds" style="--i:${i}"><i class="pin"></i><div class="dc"><canvas data-k="${j.k}" aria-hidden="true"></canvas><div class="db"><div class="when">${j.d}</div><h3>${j.c}</h3><div class="role">${j.r}</div><p>${j.x[0]}</p></div></div></article>`).join("")+`<article class="ds next" style="--i:4"><i class="pin"></i><a class="dc" href="#contact"><div class="db"><div class="when">June 2027</div><h3>Your team?</h3><div class="role">Open to work</div><p>Full-time AI, FDE, Data Science and ML Engineering roles. Open to relocating anywhere in the US.</p><span class="go">Let's connect</span></div></a></article>`);
+ G.insertAdjacentHTML("beforeend",O.map((j,i)=>`<article class="ds${i%2?" up":""}" style="--i:${i}"><i class="pin"></i><div class="dc"><canvas data-k="${j.k}" aria-hidden="true"></canvas><div class="db"><div class="when">${j.d}</div><h3>${j.c}</h3><div class="role">${j.r}</div><p>${j.x[0]}</p></div></div></article>`).join("")+`<article class="ds next" style="--i:4"><i class="pin"></i><a class="dc" href="#contact"><div class="db"><div class="when">June 2027</div><h3>Your team?</h3><div class="role">Open to work</div><p>Full-time AI, FDE, Data Science and ML Engineering roles. Open to relocating anywhere in the US.</p><span class="go">Let's connect</span></div></a></article>`);
  const S=G.querySelector("#dgp"),base=S.querySelector(".base"),glow=S.querySelector(".glow"),tr=S.querySelector(".trav"),pins=[...G.querySelectorAll(".pin")],cvs=[...G.querySelectorAll("canvas")];let len=0,vis=false;
  function lay(){const g=G.getBoundingClientRect();S.setAttribute("viewBox",`0 0 ${g.width} ${g.height}`);S.setAttribute("width",g.width);S.setAttribute("height",g.height);
   const P=pins.map(p=>{const r=p.getBoundingClientRect();return[r.left-g.left+r.width/2,r.top-g.top+r.height/2]});let d=`M${P[0][0]} ${P[0][1]}`;
-  for(let i=1;i<P.length;i++){const a=P[i-1],b=P[i],v=innerWidth>1000;d+=v?` C${(a[0]+b[0])/2} ${a[1]} ${(a[0]+b[0])/2} ${b[1]} ${b[0]} ${b[1]}`:` L${b[0]} ${b[1]}`}
+  for(let i=1;i<P.length;i++){const a=P[i-1],b=P[i],v=innerWidth>1000;d+=` L${b[0]} ${b[1]}`}
   base.setAttribute("d",d);glow.setAttribute("d",d);len=glow.getTotalLength();glow.style.strokeDasharray=len;}
  lay();addEventListener("resize",lay);if(document.fonts)document.fonts.ready.then(lay);
  new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis)lay()},{threshold:.15}).observe(G);
