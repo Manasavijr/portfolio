@@ -505,3 +505,6 @@ h2{font-size:clamp(38px,4.8vw,60px)}
 .edu{display:flex;align-items:center;gap:10px;margin:-14px 0 28px;font-size:14px;color:var(--mute);animation:fade 1s .55s both}
 .edu svg{width:18px;height:18px;color:#E8C27A;flex:none}
 .edu b{color:var(--ink);font-weight:500}
+
+.db .met{margin-top:8px;font:500 12.5px var(--mono);color:#E8C27A;display:flex;align-items:center;gap:7px}
+.db .met::before{content:"";width:6px;height:6px;border-radius:50%;background:#E8C27A;box-shadow:0 0 8px #E8C27A}
