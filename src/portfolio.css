@@ -491,3 +491,9 @@ h2{font-size:clamp(38px,4.8vw,60px)}
 .dgp path{stroke-linejoin:round}
 @media (max-width:1000px){.ds.up{flex-direction:row;transform:none;top:auto}}
 @media (min-width:1001px){.ds.up{align-items:flex-end}.ds.up .pin{margin:0 16px 0 0}.ds.up{left:calc(var(--i)*19.6% - 19% + 50px)}}
+/* smaller logo strip */
+.lm{gap:8px;margin-bottom:22px}
+.lm .row{gap:10px}
+.lg{padding:7px 14px 7px 10px;font-size:15px;gap:8px}
+.lg svg{width:16px;height:16px}
+@media (max-width:820px){.lg{font-size:14px;padding:6px 12px 6px 9px}.lg svg{width:15px;height:15px}}
